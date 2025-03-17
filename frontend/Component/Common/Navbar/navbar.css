@@ -1,0 +1,29 @@
+.nav-container {
+  /* width: 100vw !important; */
+  height: 80px;
+  background-color: #121212 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #323232 !important;
+}
+
+.search {
+  display: flex;
+  margin-left: 15%;
+}
+
+.right-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15 !important;
+  margin-left: auto;
+  margin-right: 18%;
+}
+
+.icon {
+  color: aliceblue;
+  width: 24px;
+  height: 24px;
+}
