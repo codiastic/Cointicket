@@ -2,9 +2,9 @@
 
 .ticket {
   width: auto;
-  height: 520px;
+  height: auto;
   display: flex;
-  background-color: black !important;
+  background-color: transparent !important;
   /* padding: px; Added padding for better spacing */
 }
 

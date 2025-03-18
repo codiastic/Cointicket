@@ -78,22 +78,34 @@ const Navbar = () => {
               />
             </Search>
           </Box>{" "}
-          <Box sx={{ display: { xs: "none", md: "flex", marginLeft: "10%" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                sx={{
-                  my: 2,
-                  color: "white",
-                  display: "block",
-                  fontFamily: "Sora, sans-serif",
-                }}
-              >
-                {page}
-              </Button>
-            ))}
-
-            <Button>CT Pro</Button>
+          <Box className="button-box">
+            <Button className="nav-button">
+              <HomeOutlinedIcon />
+              Home
+            </Button>
+            <Button className="nav-button">
+              <Image src="/images/alpha.svg" alt="ct" width={24} height={24} />
+              CT Alpha
+            </Button>
+            <Button className="nav-button">
+              <Image
+                src="/images/workshop.svg"
+                alt="ct"
+                width={24}
+                height={24}
+              />
+              CT Workshop
+            </Button>
+            <Button className="ct-button">
+              {" "}
+              <Image
+                src="/images/editor_choice.svg"
+                alt="ct"
+                width={24}
+                height={24}
+              />
+              CT Pro
+            </Button>
           </Box>
           <Box className="right-section">
             <IconButton>
