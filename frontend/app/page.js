@@ -32,13 +32,14 @@ export default function Home() {
     setValue(newValue);
   };
 
-  const isMobile = useMediaQuery("(max-width:900px)");
+  // responsive
+  const isMobile = useMediaQuery("(max-width:575px)");
 
   return (
     <Box>
       <Navbar />
 
-      {isMobile && <MobileNav />}
+      {/* {isMobile && <MobileNav />} */}
 
       {/* badge cards */}
 

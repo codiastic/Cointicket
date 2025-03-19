@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,6 +14,9 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useMediaQuery } from "@mui/material";
+
 import "./navbar.css";
 
 // buttons
@@ -61,66 +64,115 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+// responsive
+
 const Navbar = () => {
+  const isMobile = useMediaQuery("(max-width:768px)");
+  const [openMenu, setOpenMenu] = useState(false);
+
   return (
     <AppBar className="nav-container" position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box className="search">
-            <Image src="/images/logo.svg" alt="ct" width={40} height={40} />
-            <Search>
-              <SearchIconWrapper>
+          {isMobile ? (
+            <>
+              {/* Mobile Layout */}
+
+              <IconButton onClick={() => setOpenMenu(!openMenu)}>
+                <MenuIcon />
+              </IconButton>
+              <Box
+                className="search"
+                sx={{ flex: 1, display: "flex", justifyContent: "center" }}
+              >
                 <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search “Cryptocurrencies” or “User” "
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
-          </Box>{" "}
-          <Box className="button-box">
-            <Button className="nav-button">
-              <HomeOutlinedIcon />
-              Home
-            </Button>
-            <Button className="nav-button">
-              <Image src="/images/alpha.svg" alt="ct" width={24} height={24} />
-              CT Alpha
-            </Button>
-            <Button className="nav-button">
-              <Image
-                src="/images/workshop.svg"
-                alt="ct"
-                width={24}
-                height={24}
-              />
-              CT Workshop
-            </Button>
-            <Button className="ct-button">
-              {" "}
-              <Image
-                src="/images/editor_choice.svg"
-                alt="ct"
-                width={24}
-                height={24}
-              />
-              CT Pro
-            </Button>
-          </Box>
-          <Box className="right-section">
-            <IconButton>
-              <NotificationsNoneOutlinedIcon className="icon" />
-            </IconButton>
-            <Avatar
-              sx={{
-                border: "1px solid #797979",
-                color: "#5A0E61",
-                backgroundColor: "#D6AADA",
-              }}
-            >
-              A
-            </Avatar>
-          </Box>
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="search-input"
+                  style={{
+                    border: "none",
+                    outline: "none",
+                    padding: "6px 10px",
+                    borderRadius: "5px",
+                    width: "100%",
+                  }}
+                />
+              </Box>
+              <Avatar
+                sx={{
+                  border: "1px solid #797979",
+                  color: "#5A0E61",
+                  backgroundColor: "#D6AADA",
+                }}
+              >
+                A
+              </Avatar>
+            </>
+          ) : (
+            <>
+              <Box className="search">
+                <Image src="/images/logo.svg" alt="ct" width={40} height={40} />
+                <Search>
+                  <SearchIconWrapper>
+                    <SearchIcon />
+                  </SearchIconWrapper>
+                  <StyledInputBase
+                    placeholder="Search “Cryptocurrencies” or “User” "
+                    inputProps={{ "aria-label": "search" }}
+                  />
+                </Search>
+              </Box>{" "}
+              <Box className="button-box">
+                <Button className="nav-button">
+                  <HomeOutlinedIcon />
+                  Home
+                </Button>
+                <Button className="nav-button">
+                  <Image
+                    src="/images/alpha.svg"
+                    alt="ct"
+                    width={24}
+                    height={24}
+                  />
+                  CT Alpha
+                </Button>
+                <Button className="nav-button">
+                  <Image
+                    src="/images/workshop.svg"
+                    alt="ct"
+                    width={24}
+                    height={24}
+                  />
+                  CT Workshop
+                </Button>
+                <Button className="ct-button">
+                  {" "}
+                  <Image
+                    src="/images/editor_choice.svg"
+                    alt="ct"
+                    width={24}
+                    height={24}
+                  />
+                  CT Pro
+                </Button>
+              </Box>
+              <Box className="right-section">
+                <IconButton>
+                  <NotificationsNoneOutlinedIcon className="icon" />
+                </IconButton>
+                <Avatar
+                  sx={{
+                    border: "1px solid #797979",
+                    color: "#5A0E61",
+                    backgroundColor: "#D6AADA",
+                  }}
+                >
+                  A
+                </Avatar>
+              </Box>
+            </>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
