@@ -23,6 +23,8 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import MobileNav from "../Component/Common/Navbar/mobileNav";
 import FollowTop from "../Component/followTop/followTop";
 import Sidebar from "../Component/Common/Sidebar/sidebar";
+import QuickAction from "../Component/quickAction/quickAction";
+import Banner from "../Component/banner/banner";
 
 export default function Home() {
   // tabs
@@ -115,26 +117,11 @@ export default function Home() {
           sx={{
             display: "flex",
             gap: 2,
-            overflowX: isMobile ? "scroll" : "visible", // Enable scrolling on mobile
-            scrollbarWidth: "none", // Hide scrollbar
-            msOverflowStyle: "none",
-            "&::-webkit-scrollbar": { display: "none" }, // Hide scrollbar for WebKit browsers
+            scrollbarWidth: "none", // Hide scrollbarF
           }}
         >
           {cryptoData.map((crypto, index) => (
-            <Card
-              key={index}
-              className="badge"
-              // sx={{
-              //   Width: isMobile ? "200px" : "190px", // Adjust size for mobile
-
-              //   display: "flex",
-              //   alignItems: "center",
-              //   padding: "8px",
-              //   backgroundColor: "#1a1a1a",
-              //   borderRadius: "10px",
-              // }}
-            >
+            <Card key={index} className="badge">
               <CardContent
                 sx={{
                   display: "flex",
@@ -193,82 +180,13 @@ export default function Home() {
 
       {isMobile ? (
         <>
-          <Box className="reason-box">
-            <Box className="learn-box">
-              <Typography
-                sx={{
-                  fontFamily: "Inter, sans-serif",
-                  fontWeight: 800,
-                  fontSize: "24px",
-                  color: "white",
-                }}
-              >
-                Top 5 Reasons to use
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: "Inter, sans-serif",
-                  fontWeight: 800,
-                  fontSize: "24px",
-                  color: "#FFB34F",
-                }}
-              >
-                CoinTicket
-              </Typography>
-              <Button
-                variant="contained"
-                sx={{ color: "black", backgroundColor: "white", mb: 2 }}
-              >
-                Read More
-              </Button>
-            </Box>
-            <Box className="middle-img">
-              <img src="/images/middle.png" alt="build" />
-            </Box>
-          </Box>
-          <Box className="main-middle">
+          <Banner />
+          <Box>
             <Box className="middle-tab">
-              <Box className="middle-box">
-                <Image
-                  src="/images/coins.svg"
-                  alt="coins"
-                  width={65}
-                  height={30}
-                />
-                <Typography className="middle-typo">Trending Coins</Typography>
-              </Box>
-              <Box className="middle-box">
-                <Image
-                  src="/images/trader.svg"
-                  alt="coins"
-                  width={32}
-                  height={32}
-                />
-                <Typography className="middle-typo">Top Traders</Typography>
-              </Box>
-              <Box className="middle-box">
-                <Image
-                  src="/images/history.svg"
-                  alt="coins"
-                  width={32}
-                  height={32}
-                />
-                <Typography className="middle-typo">My Activity</Typography>
-              </Box>
-              <Box className="middle-box">
-                <Image
-                  src="/images/saved.svg"
-                  alt="coins"
-                  width={32}
-                  height={32}
-                />
-                <Typography className="middle-typo">View Watchlist</Typography>
-              </Box>
-            </Box>
+              <QuickAction />
+            </Box> 
 
-            {/* middle center */}
-
-            {/* post line */}
+            {/* post line -----------------*/}
             <Box
               sx={{
                 marginTop: 1,
@@ -413,86 +331,17 @@ export default function Home() {
       ) : (
         <Box display={"flex"}>
           {/* sidebar */}
-
           <Box className="sidebar">
             <Sidebar />
           </Box>
 
           {/* middle content */}
           <Box className="main-middle">
-            <Box className="middle-tab">
-              <Box className="middle-box">
-                <Image
-                  src="/images/coins.svg"
-                  alt="coins"
-                  width={65}
-                  height={30}
-                />
-                <Typography className="middle-typo">Trending Coins</Typography>
-              </Box>
-              <Box className="middle-box">
-                <Image
-                  src="/images/trader.svg"
-                  alt="coins"
-                  width={32}
-                  height={32}
-                />
-                <Typography className="middle-typo">Top Traders</Typography>
-              </Box>
-              <Box className="middle-box">
-                <Image
-                  src="/images/history.svg"
-                  alt="coins"
-                  width={32}
-                  height={32}
-                />
-                <Typography className="middle-typo">My Activity</Typography>
-              </Box>
-              <Box className="middle-box">
-                <Image
-                  src="/images/saved.svg"
-                  alt="coins"
-                  width={32}
-                  height={32}
-                />
-                <Typography className="middle-typo">View Watchlist</Typography>
-              </Box>
-            </Box>
+            {/* Quick Buttons */}
+            <QuickAction />
 
-            {/* middle center */}
-            <Box className="reason-box">
-              <Box className="learn-box">
-                <Typography
-                  sx={{
-                    fontFamily: "Inter, sans-serif",
-                    fontWeight: 800,
-                    fontSize: "24px",
-                    color: "white",
-                  }}
-                >
-                  Top 5 Reasons to use
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Inter, sans-serif",
-                    fontWeight: 800,
-                    fontSize: "24px",
-                    color: "#FFB34F",
-                  }}
-                >
-                  CoinTicket
-                </Typography>
-                <Button
-                  variant="contained"
-                  sx={{ color: "black", backgroundColor: "white", mb: 2 }}
-                >
-                  Read More
-                </Button>
-              </Box>
-              <Box className="middle-img">
-                <img src="/images/middle.png" alt="build" />
-              </Box>
-            </Box>
+            {/* middle banner */}
+            <Banner />
 
             {/* post line */}
             <Box
@@ -634,7 +483,7 @@ export default function Home() {
 
             {/* Ticket */}
 
-            {/* <BasicTicket /> */}
+            <BasicTicket />
           </Box>
 
           {/* right content */}

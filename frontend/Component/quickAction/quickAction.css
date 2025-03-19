@@ -1,0 +1,45 @@
+.middle-tab {
+  display: flex;
+  justify-content: center;
+  gap: 20;
+  /* margin-left: 5%; */
+  margin-top: 15;
+}
+
+.middle-box {
+  border: 1px solid #333333;
+  border-radius: 6px;
+  height: 102px;
+  width: 90px; /* Slightly increased width */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  gap: 10px; /* Fixed: Added "px" */
+  padding: 8;
+}
+
+.middle-typo {
+  color: #fff;
+  font-family: "Sora", sans-serif !important; /* Fixed font declaration */
+  font-size: 12px;
+  text-align: center; /* Ensures text is centered */
+}
+
+@media screen and (max-width: 768px) {
+  .middle-box {
+    height: 70px;
+    width: 60px; /* Slightly increased width */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 10px; /* Fixed: Added "px" */
+    padding: 8;
+  }
+  .middle-tab {
+    max-width: 100%; /* Full width on small screens */
+    gap: 10px; /* Reduce spacing */
+    padding: 5px; /* Adjust padding */
+  }
+}

@@ -10,7 +10,7 @@ import "./sidebar.css";
 
 export default function Sidebar() {
   return (
-    <Box className="sidebar">
+    <>
       <Box className="sidebar-li">
         <Button className="typo-style">
           {" "}
@@ -45,6 +45,6 @@ export default function Sidebar() {
           Contact Us
         </Button>
       </Box>
-    </Box>
+    </>
   );
 }

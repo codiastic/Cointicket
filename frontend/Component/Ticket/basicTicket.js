@@ -35,41 +35,16 @@ const BasicTicket = () => {
     <Box className="header">
       <Card className="ticket">
         <CardContent className="content">
-          <UserGrid />
-          {/* <Box className="left">
-            <IconButton>
-              <BookmarkAddOutlinedIcon sx={{ color: "white" }} />
-            </IconButton>
-            <IconButton
-              aria-label="more"
-              id="long-button"
-              aria-controls={open ? "long-menu" : undefined}
-              aria-expanded={open ? "true" : undefined}
-              aria-haspopup="true"
-              onClick={handleClick}
-            >
-              <MoreVertIcon sx={{ color: "white" }} />
-            </IconButton>
-            <Menu
-              id="long-menu"
-              MenuListProps={{
-                "aria-labelledby": "long-button",
-              }}
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-            >
-              {options.map((option) => (
-                <MenuItem
-                  key={option}
-                  selected={option === "Pyxis"}
-                  onClick={handleClose}
-                >
-                  {option}
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box> */}
+          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+            {" "}
+            <UserGrid />
+            <Box>
+              <IconButton>
+                <BookmarkAddOutlinedIcon sx={{ color: "white" }} />
+                <MoreVertIcon sx={{ color: "white" }} />
+              </IconButton>
+            </Box>
+          </Box>
         </CardContent>
       </Card>
     </Box>
