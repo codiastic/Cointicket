@@ -1,0 +1,16 @@
+.typo-style {
+  font-family: "Inter", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  color: #fff !important;
+}
+
+.sidebar-li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20;
+  margin-top: 30;
+  padding-left: 15;
+  margin-left: 50;
+}

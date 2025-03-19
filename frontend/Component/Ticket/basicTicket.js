@@ -17,6 +17,8 @@ import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import "./basicTicket.css";
+import "../../app/home.css";
+import UserGrid from "../userGrid/userGrid";
 
 const BasicTicket = () => {
   const options = ["1", "2", "3", "4"];
@@ -33,27 +35,8 @@ const BasicTicket = () => {
     <Box className="header">
       <Card className="ticket">
         <CardContent className="content">
-          <Box className="right">
-            <CardMedia>
-              <Avatar
-                src="/images/ctuser.png"
-                alt="profilepic"
-                className="avatar"
-              />
-            </CardMedia>
-            <Box sx={{ gap: 2 }}>
-              <Typography className="name">@anonymous123 .</Typography>
-              <Box sx={{ display: "flex", gap:2 }}>
-                <img src="/images/ctscore.png" alt="score" className="score" />
-                <Typography sx={{ color: "#08FF00" }}>Hit rate 76%</Typography>
-              </Box>
-            </Box>
-            <Typography sx={{ color: "#B8B8B8" }}>2h</Typography>
-            <Button variant="outlined" className="follow">
-              Follow
-            </Button>
-          </Box>
-          <Box className="left">
+          <UserGrid />
+          {/* <Box className="left">
             <IconButton>
               <BookmarkAddOutlinedIcon sx={{ color: "white" }} />
             </IconButton>
@@ -86,7 +69,7 @@ const BasicTicket = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
         </CardContent>
       </Card>
     </Box>

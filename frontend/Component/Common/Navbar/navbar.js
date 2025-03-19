@@ -79,26 +79,31 @@ const Navbar = () => {
               {/* Mobile Layout */}
 
               <IconButton onClick={() => setOpenMenu(!openMenu)}>
-                <MenuIcon />
+                <MenuIcon sx={{ color: "white" }} />
               </IconButton>
-              <Box
-                className="search"
-                sx={{ flex: 1, display: "flex", justifyContent: "center" }}
-              >
-                <SearchIcon />
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="search-input"
+              <Box display="flex" alignItems="center">
+                <Search
                   style={{
-                    border: "none",
-                    outline: "none",
-                    padding: "6px 10px",
-                    borderRadius: "5px",
+                    display: "flex",
+                    alignItems: "center",
                     width: "100%",
                   }}
-                />
+                >
+                  <Image
+                    src="/images/logo.svg"
+                    alt="ct"
+                    width={25}
+                    height={25}
+                  />
+
+                  <StyledInputBase
+                    placeholder="Search"
+                    inputProps={{ "aria-label": "search" }}
+                    style={{ flex: 1, marginLeft: "10px" }}
+                  />
+                </Search>
               </Box>
+
               <Avatar
                 sx={{
                   border: "1px solid #797979",
