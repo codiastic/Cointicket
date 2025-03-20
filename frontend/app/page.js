@@ -81,8 +81,6 @@ export default function Home() {
     <Box>
       <Navbar />
 
-      {/* {isMobile && <MobileNav />} */}
-
       {/* badge cards */}
 
       <Box
@@ -222,6 +220,9 @@ export default function Home() {
                     aria-label="lab API tabs example"
                     sx={{
                       width: "100%",
+                      display: "flex",
+                      justifyContent:
+                        "space-between" /* ✅ Ensures all tabs are evenly spaced */,
                       "& .MuiTabs-indicator": {
                         backgroundColor: "white",
                       },
@@ -231,9 +232,9 @@ export default function Home() {
                       label="Latest"
                       value="1"
                       sx={{
-                        marginLeft: "16px",
-                        alignSelf: "flex-start",
-                        color: "white", // Default color
+                        flex: 1 /* ✅ Makes each tab take equal space */,
+                        textAlign: "center",
+                        color: "white",
                         "&.Mui-selected": { color: "white" },
                       }}
                     />
@@ -241,19 +242,19 @@ export default function Home() {
                       label="My Squad"
                       value="2"
                       sx={{
-                        margin: "0 auto",
-                        color: "white", // Default color
+                        flex: 1,
+                        textAlign: "center",
+                        color: "white",
                         "&.Mui-selected": { color: "white" },
                       }}
-                    />{" "}
-                    {/* Centers the tab */}
+                    />
                     <Tab
                       label="Top Tickets"
                       value="3"
                       sx={{
-                        marginRight: "16px",
-                        alignSelf: "flex-end",
-                        color: "white", // Default color
+                        flex: 1,
+                        textAlign: "center",
+                        color: "white",
                         "&.Mui-selected": { color: "white" },
                       }}
                     />
@@ -264,9 +265,9 @@ export default function Home() {
 
             {/* buttons */}
             <Box className="screen-buttons">
-              <Button variant="contained" className="post-button">
+              <Button variant="contained" className="button-screen">
                 <Image
-                  src="/images/tikcet.svg"
+                  src="/images/Ticket.svg"
                   alt="coins"
                   width={21}
                   height={21}
@@ -296,6 +297,7 @@ export default function Home() {
             {/* Ticket */}
             <BasicTicket />
           </Box>
+          {/* <MobileNav /> */}
         </>
       ) : (
         <Box display={"flex"}>
@@ -421,9 +423,9 @@ export default function Home() {
 
             {/* buttons */}
             <Box className="screen-buttons">
-              <Button variant="contained" className="post-button">
+              <Button variant="contained" className="button-screen">
                 <Image
-                  src="/images/tikcet.svg"
+                  src="/images/Ticket.svg"
                   alt="coins"
                   width={32}
                   height={32}

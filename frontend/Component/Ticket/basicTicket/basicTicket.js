@@ -1,20 +1,7 @@
 "use client";
 
-import {
-  Avatar,
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  IconButton,
-  Menu,
-  Grid,
-  MenuItem,
-} from "@mui/material";
+import { Box, Typography, IconButton } from "@mui/material";
 import React from "react";
-import Image from "next/image";
 import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CircleIcon from "@mui/icons-material/Circle";
@@ -30,20 +17,19 @@ const BasicTicket = () => {
   return (
     <>
       {/* header */}
-      <Grid className="ticket">
-        <Box>
+      <Box className="ticket">
+        <Box className="user-grid-container">
           <UserGrid />
         </Box>
-        <Box sx={{ paddingRight: 2 }}>
-          <IconButton>
-            <BookmarkAddOutlinedIcon sx={{ color: "white" }} />
-            <MoreVertIcon sx={{ color: "white" }} />
-          </IconButton>
-        </Box>
-      </Grid>
+
+        <IconButton>
+          <BookmarkAddOutlinedIcon sx={{ color: "white" }} />
+          <MoreVertIcon sx={{ color: "white" }} />
+        </IconButton>
+      </Box>
       {/* indicator */}
       <Box className="date-indicator">
-        <Typography sx={{ color: "#08FF00" }}>DD/MM/YYY</Typography>
+        <Typography sx={{ color: "#08FF00" }}>DD/MM/YY</Typography>
         <Box className="indicator">
           <CircleIcon sx={{ fontSize: "12px" }} />
           <Typography>Open</Typography>

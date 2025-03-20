@@ -101,16 +101,29 @@
   width: 120px;
 }
 
-@media (max-width: 768px) {
-  .screen-buttons {
-    width: 100%;
-  }
+.button-screen img {
+  filter: invert(0); /* Keeps icon white */
+  transition: filter 0.3s ease-in-out;
+}
 
-  .screen-buttons .MuiButton-root {
-    /* Ensures equal spacing */
-    width: auto; /* Prevents forcing full width */
-    font-size: 10px;
-  }
+/* Hover Effect */
+.button-screen:hover {
+  background-color: #fff !important;
+  color: black !important;
+}
+
+.button-screen:hover img {
+  filter: invert(1);
+}
+/* Active Button Effect */
+.button-screen.active {
+  background-color: white !important; /* White background */
+  color: black !important; /* Black text */
+}
+
+/* Active Icon Color */
+.button-screen.active img {
+  filter: invert(1); /* Makes icon black */
 }
 
 @media screen and (max-width: 768px) and (min-width: 320px) {
@@ -119,5 +132,30 @@
   }
   .badge-name {
     font-size: 12px;
+  }
+
+  .screen-buttons {
+    display: flex; /* ✅ Ensures buttons stay in a row */
+    justify-content: space-between; /* ✅ Even spacing */
+    width: 100%;
+    gap: 8px; /* ✅ Adds space between buttons */
+    padding: 8px 0;
+  }
+
+  .screen-buttons .MuiButton-root {
+    flex: 1; /* ✅ Makes buttons take equal space */
+    min-width: 90px; /* ✅ Prevents buttons from being too small */
+    max-width: 120px; /* ✅ Limits button growth */
+    font-size: 12px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* ✅ Space between icon & text */
+  }
+
+  .screen-buttons img {
+    width: 18px !important; /* ✅ Adjust icon size */
+    height: 18px !important;
   }
 }
