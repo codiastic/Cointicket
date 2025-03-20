@@ -17,7 +17,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 
 import Image from "next/image";
-import BasicTicket from "../Component/Ticket/basicTicket";
+import BasicTicket from "../Component/Ticket/basicTicket/basicTicket";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import MobileNav from "../Component/Common/Navbar/mobileNav";
@@ -184,38 +184,6 @@ export default function Home() {
           <Box>
             <Box className="middle-tab">
               <QuickAction />
-            </Box> 
-
-            {/* post line -----------------*/}
-            <Box
-              sx={{
-                marginTop: 1,
-                width: "94%",
-                height: "auto",
-                backgroundColor: "#1C1C1C",
-                borderRadius: "8px",
-                display: "flex",
-                justifyContent: "space-between",
-                padding: 2,
-              }}
-            >
-              <Box className="post">
-                <Avatar
-                  sx={{
-                    border: "1px solid #797979",
-                    color: "#5A0E61",
-                    backgroundColor: "#D6AADA",
-                  }}
-                >
-                  A
-                </Avatar>
-                <Typography className="middle-typo">
-                  What's Your Thoughts ?
-                </Typography>
-              </Box>
-              <Button variant="contained" className="post-button">
-                Post
-              </Button>
             </Box>
 
             {/* tabs */}
@@ -299,8 +267,8 @@ export default function Home() {
                 <Image
                   src="/images/tikcet.svg"
                   alt="coins"
-                  width={32}
-                  height={32}
+                  width={21}
+                  height={21}
                 />
                 Tickets
               </Button>
@@ -308,8 +276,8 @@ export default function Home() {
                 <Image
                   src="/images/polls.svg"
                   alt="coins"
-                  width={32}
-                  height={32}
+                  width={21}
+                  height={21}
                 />
                 Polls
               </Button>
@@ -317,15 +285,15 @@ export default function Home() {
                 <Image
                   src="/images/insight.svg"
                   alt="coins"
-                  width={32}
-                  height={32}
+                  width={21}
+                  height={21}
                 />
                 Insights
               </Button>
             </Box>
 
             {/* Ticket */}
-            {/* <BasicTicket /> */}
+            <BasicTicket />
           </Box>
         </>
       ) : (

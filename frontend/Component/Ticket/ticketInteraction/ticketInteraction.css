@@ -1,0 +1,12 @@
+.interaction-main {
+  display: flex;
+  justify-content: space-between;
+  padding: 15;
+}
+
+.rocket-interaction {
+  display: flex;
+  color: #7a7a7a;
+  justify-content: center;
+  align-items: center;
+}

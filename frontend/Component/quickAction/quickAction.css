@@ -1,45 +1,55 @@
 .middle-tab {
   display: flex;
-  justify-content: center;
-  gap: 20;
-  /* margin-left: 5%; */
-  margin-top: 15;
+  justify-content: space-between; /* Keeps all items aligned properly */
+  align-items: center;
+  gap: 10px; /* Adjusts space between items */
+  margin-top: 15px;
+  width: 100%;
+  padding: 8px;
 }
 
 .middle-box {
   border: 1px solid #333333;
   border-radius: 6px;
-  height: 102px;
-  width: 90px; /* Slightly increased width */
+  height: 100px;
+  width: 90px;
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  justify-content: center; /* Center items vertically */
-  align-items: center; /* Center items horizontally */
-  gap: 10px; /* Fixed: Added "px" */
-  padding: 8;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
 }
 
 .middle-typo {
-  color: #fff;
+  color: #fff !important;
   font-family: "Sora", sans-serif !important; /* Fixed font declaration */
   font-size: 12px;
   text-align: center; /* Ensures text is centered */
 }
 
+/* Responsive Styling */
 @media screen and (max-width: 768px) {
-  .middle-box {
-    height: 70px;
-    width: 60px; /* Slightly increased width */
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
-    gap: 10px; /* Fixed: Added "px" */
-    padding: 8;
-  }
   .middle-tab {
-    max-width: 100%; /* Full width on small screens */
-    gap: 10px; /* Reduce spacing */
-    padding: 5px; /* Adjust padding */
+    display: flex;
+    justify-content: space-between; /* Keeps items evenly spaced */
+    gap: 6px; /* Reduce gap to avoid overflow */
+    padding: 0px;
+    width: 100%; /* Ensures it fits inside the screen */
+  }
+
+  .middle-box {
+    flex: 0 1 24%; /* ✅ Ensures exactly 4 items fit without overflowing */
+    min-width: 40px; /* Prevents shrinking too much */
+    max-width: 55px; /* Prevents growing too much */
+    height: 85px; /* Adjusts height for proper fit */
+  }
+
+  .middle-typo {
+    font-size: 10px !important; /* Adjust font size for smaller screens */
+  }
+  .middle-box img {
+    width: 60px !important; /* Force icons to be 20px */
+    height: 26px !important;
   }
 }
