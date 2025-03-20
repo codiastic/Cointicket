@@ -25,6 +25,7 @@ import FollowTop from "../Component/followTop/followTop";
 import Sidebar from "../Component/Common/Sidebar/sidebar";
 import QuickAction from "../Component/quickAction/quickAction";
 import Banner from "../Component/banner/banner";
+import UpgrateToCT from "@/Component/upgradeCT/upgradeToCT";
 
 export default function Home() {
   // tabs
@@ -457,43 +458,7 @@ export default function Home() {
           {/* right content */}
           <Box sx={{ marginLeft: 8 }}>
             <FollowTop />
-            <Box className="follow-home">
-              <Box
-                sx={{
-                  width: 60, // Set equal width & height for a perfect circle
-                  height: 60,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  backgroundColor: "#212121",
-                  borderRadius: "50%", // Makes it fully circular
-                  boxShadow: "0px 4px 10px rgba(242, 164, 62, 0.58)", // Improved shadow
-                }}
-              >
-                <Image
-                  src="/images/lock_open.svg"
-                  alt="lock"
-                  width={32}
-                  height={32}
-                />
-              </Box>
-              <Typography className="middle-typo">
-                Unlock Stoploss & Target Price !
-              </Typography>
-              <Typography
-                sx={{
-                  textAlign: "justify",
-                  justifyContent: "center",
-                  color: "#323232",
-                }}
-              >
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio
-                quam officia quis quae, quibusdam exercitationem laudantium rem
-                nam similique aliquid earum facilis quod debitis. Suscipit
-                aperiam quae laborum pariatur aspernatur.
-              </Typography>
-              <Button>Upgrade to CT Pro</Button>
-            </Box>
+            <UpgrateToCT />
           </Box>
         </Box>
       )}
