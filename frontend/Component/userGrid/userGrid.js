@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Avatar, Typography, Button } from "@mui/material";
-import "../../app/home.css";
+import "./userGrid.css";
 
 export default function UserGrid() {
   return (
@@ -13,7 +13,7 @@ export default function UserGrid() {
               sx={{
                 color: "white",
                 fontFamily: "'Sora', sans-serif",
-                fontSize: "12px",
+                fontSize: "16px",
               }}
             >
               @anonymous123
@@ -26,7 +26,7 @@ export default function UserGrid() {
             <img src="/images/ctscore.png" alt="score" className="score" />
 
             <Typography sx={{ color: "#08FF00", fontSize: "12px" }}>
-              | Hit rate 76%
+              Hit rate 76%
             </Typography>
           </Box>
         </Box>

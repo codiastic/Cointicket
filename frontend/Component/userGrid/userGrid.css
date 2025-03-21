@@ -1,0 +1,27 @@
+.follow-button {
+  border-radius: 100px !important;
+  height: 24px;
+  border: 2px solid #1396e8 !important;
+  color: #1396e8 !important;
+  padding: 2px 18px;
+  font-size: 12px;
+}
+
+.score {
+  width: 100px;
+  max-height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .follow-button {
+    border-radius: 100px !important;
+    height: 20px;
+    border: 1px solid #1396e8 !important;
+    color: #1396e8 !important;
+    /* padding: 4px 12px; */
+    font-size: 8px !important;
+  }
+  .score {
+    max-height: 16px;
+  }
+}

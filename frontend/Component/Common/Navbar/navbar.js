@@ -71,7 +71,7 @@ const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <AppBar className="nav-container" position="static">
+    <AppBar className="nav-container" position={isMobile ? "static" : "sticky"}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {isMobile ? (

@@ -9,6 +9,7 @@ import {
   Card,
   CardContent,
   IconButton,
+  TextField,
   Typography,
   useMediaQuery,
 } from "@mui/material";
@@ -26,6 +27,7 @@ import Sidebar from "../Component/Common/Sidebar/sidebar";
 import QuickAction from "../Component/quickAction/quickAction";
 import Banner from "../Component/banner/banner";
 import UpgrateToCT from "@/Component/upgradeCT/upgradeToCT";
+import AdvanceTikcet from "@/Component/Ticket/advanceTikcet/advanceTicket";
 
 export default function Home() {
   // tabs
@@ -177,6 +179,7 @@ export default function Home() {
         )}
       </Box>
 
+      {/* mobile----------------------------------------------------------------------------------------------- */}
       {isMobile ? (
         <>
           <Banner />
@@ -190,39 +193,41 @@ export default function Home() {
               sx={{
                 width: "100%",
                 typography: "body1",
-                borderBottom: "1px solid #8B8B8B",
+                // borderBottom: "1px solid #8B8B8B",
               }}
             >
               <TabContext
                 value={value}
                 sx={{
                   "& .MuiTabs-indicator": {
-                    backgroundColor: "white", // Change indicator color
+                    backgroundColor: "white",
                   },
                   "& .MuiTab-root": {
-                    color: "white", // Unselected tab color
+                    color: "white",
+                    minWidth: "auto", // Ensures the tabs shrink if needed
+                    padding: "6px 12px", // Reduces padding for a smaller tab
+                    fontSize: "10px", // Adjust text size for mobile
                   },
                   "& .Mui-selected": {
-                    color: "white !important", // Selected tab color
+                    color: "white !important",
                   },
                 }}
               >
                 <Box
                   sx={{
                     display: "flex",
-                    justifyContent: "space-between", // Distributes the tabs
+                    justifyContent: "space-evenly", // Centers tabs
                     alignItems: "center",
-                    padding: "8px 16px",
+                    padding: "2px 4px", // Reduces padding for a tighter look
+                    mt: 1,
                   }}
                 >
                   <TabList
                     onChange={handleChange}
                     aria-label="lab API tabs example"
+                    variant="fullWidth" // Ensures tabs take equal space
                     sx={{
-                      width: "100%",
-                      display: "flex",
-                      justifyContent:
-                        "space-between" /* ✅ Ensures all tabs are evenly spaced */,
+                      // width: "100%",
                       "& .MuiTabs-indicator": {
                         backgroundColor: "white",
                       },
@@ -232,8 +237,10 @@ export default function Home() {
                       label="Latest"
                       value="1"
                       sx={{
-                        flex: 1 /* ✅ Makes each tab take equal space */,
+                        flex: 1,
                         textAlign: "center",
+                        fontSize: "10px", // Smaller text for mobile
+                        padding: "6px 8px", // Compact padding
                         color: "white",
                         "&.Mui-selected": { color: "white" },
                       }}
@@ -244,6 +251,8 @@ export default function Home() {
                       sx={{
                         flex: 1,
                         textAlign: "center",
+                        fontSize: "10px",
+                        padding: "6px 8px",
                         color: "white",
                         "&.Mui-selected": { color: "white" },
                       }}
@@ -254,6 +263,8 @@ export default function Home() {
                       sx={{
                         flex: 1,
                         textAlign: "center",
+                        fontSize: "10px",
+                        padding: "6px 8px",
                         color: "white",
                         "&.Mui-selected": { color: "white" },
                       }}
@@ -300,9 +311,18 @@ export default function Home() {
           {/* <MobileNav /> */}
         </>
       ) : (
-        <Box display={"flex"}>
+        // desktop-------------------------------------------------------------------------------------------------------
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 4 }}>
           {/* sidebar */}
-          <Box className="sidebar">
+          <Box
+            className="sidebar"
+            sx={{
+              position: "sticky",
+              top: 80, // Stick after scrolling 20px
+              height: "100vh", // Make it full height
+              overflowY: "auto",
+            }}
+          >
             <Sidebar />
           </Box>
 
@@ -337,9 +357,28 @@ export default function Home() {
                 >
                   A
                 </Avatar>
-                <Typography className="middle-typo">
-                  What's Your Thoughts ?
-                </Typography>
+                <TextField
+                  placeholder="What's Your Thought ?"
+                  variant="standard" // Removes default box styling
+                  // multiline
+                  InputProps={{
+                    disableUnderline: true, // Removes the bottom underline
+                    sx: {
+                      color: "white", // White text
+                      fontFamily: "Sora, sans-serif", // Custom font
+                    },
+                  }}
+                  sx={{
+                    backgroundColor: "transparent", // Transparent background
+                    border: "none", // No border
+                    outline: "none", // No active outline
+                    width: "auto", // Full width
+                    "& .MuiInputBase-input::placeholder": {
+                      color: "white", // Transparent white placeholder
+                      fontFamily: "Poppins, sans-serif",
+                    },
+                  }}
+                />
               </Box>
               <Button variant="contained" className="post-button">
                 Post
@@ -455,10 +494,17 @@ export default function Home() {
             {/* Ticket */}
 
             <BasicTicket />
+            <AdvanceTikcet />
           </Box>
 
           {/* right content */}
-          <Box sx={{ marginLeft: 8 }}>
+          <Box
+            sx={{
+              position: "sticky",
+              top: 50, // Stick after scrolling 20px
+              height: "100vh", // Make it full height
+            }}
+          >
             <FollowTop />
             <UpgrateToCT />
           </Box>

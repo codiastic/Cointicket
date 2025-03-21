@@ -1,0 +1,26 @@
+.tag-tech {
+  padding: 4px 4px;
+  border: 1px solid #c191ff;
+  background-color: #a000ff1f;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tag-fundamental {
+  padding: 4px 4px;
+  border: 1px solid #ffae5d;
+  background-color: #ff880a1f;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tags-div {
+  margin-top: 12;
+  display: flex;
+  justify-content: flex-start;
+  gap: 15;
+}

@@ -1,55 +1,55 @@
 .middle-tab {
   display: flex;
-  justify-content: space-between; /* Keeps all items aligned properly */
+  justify-content: center; /* Keeps all items aligned properly */
   align-items: center;
-  gap: 10px; /* Adjusts space between items */
+  gap: 20; /* Adjusts space between items */
   margin-top: 15px;
   width: 100%;
-  padding: 8px;
+  padding: 2px;
 }
 
 .middle-box {
-  border: 1px solid #333333;
-  border-radius: 6px;
-  height: 100px;
-  width: 90px;
+  border: 1px solid #333333 !important;
+  border-radius: 6px !important;
+  width: 90px; /* Ensure padding space */
+  height: 100px; /* Ensure padding space */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  padding: 8px;
-}
-
-.middle-typo {
-  color: #fff !important;
-  font-family: "Sora", sans-serif !important; /* Fixed font declaration */
-  font-size: 12px;
-  text-align: center; /* Ensures text is centered */
+  padding: 10px !important;
+  box-sizing: border-box; /* Ensure padding is counted correctly */
+  color: white !important;
+  font-family: "Sora", sans-serif !important;
+  font-size: 12px !important;
 }
 
 /* Responsive Styling */
 @media screen and (max-width: 768px) {
   .middle-tab {
     display: flex;
-    justify-content: space-between; /* Keeps items evenly spaced */
+    justify-content: space-evenly; /* Keeps items evenly spaced */
     gap: 6px; /* Reduce gap to avoid overflow */
     padding: 0px;
     width: 100%; /* Ensures it fits inside the screen */
+    margin-top: 4;
   }
 
   .middle-box {
     flex: 0 1 24%; /* ✅ Ensures exactly 4 items fit without overflowing */
-    min-width: 40px; /* Prevents shrinking too much */
-    max-width: 55px; /* Prevents growing too much */
-    height: 85px; /* Adjusts height for proper fit */
+    min-width: 45px; /* Prevents shrinking too much */
+    max-width: 60px; /* Prevents growing too much */
+    height: 55px; /* Adjusts height for proper fit */
+    font-size: 6px !important;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 5;
   }
 
-  .middle-typo {
-    font-size: 10px !important; /* Adjust font size for smaller screens */
-  }
   .middle-box img {
-    width: 60px !important; /* Force icons to be 20px */
-    height: 26px !important;
+    width: 45px !important; /* Force icons to be 20px */
+    height: 20px !important;
   }
 }

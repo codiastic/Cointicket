@@ -5,8 +5,9 @@
   height: auto;
   display: flex;
   justify-content: space-between;
+  align-content: start;
   background-color: transparent !important;
-  padding: 16px;
+  /* padding: 16px; */
   margin-top: 5%;
 }
 

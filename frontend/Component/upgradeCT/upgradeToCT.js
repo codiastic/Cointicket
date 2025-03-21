@@ -1,4 +1,6 @@
-import React from "react";
+"use-client";
+
+import React, { use } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import "./upgradeCT.css";
@@ -34,7 +36,15 @@ const UpgrateToCT = () => {
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio quam
         officia quis quae, quibusdam exercitationem laudantium rem
       </Typography>
-      <Button className="upgrade-btn">Upgrade to CT Pro</Button>
+      <Button className="upgrade-btn">
+        <Image
+          src="/images/editor_black.svg"
+          alt="choice"
+          width={20}
+          height={20}
+        />{" "}
+        Upgrade to CT Pro
+      </Button>
     </Box>
   );
 };
