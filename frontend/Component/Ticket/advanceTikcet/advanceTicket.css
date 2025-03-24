@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 4;
 }
 
 .tag-fundamental {
@@ -16,6 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 4;
 }
 
 .tags-div {

@@ -1,10 +1,11 @@
+"use client"
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
-export default function TicketContent() {
+export default function BasicTicketContent() {
   const tradeType = "Bullish";
   return (
-    <Box sx={{ mt: 2, width: "100%" }} color="white" padding={"1px"}>
+    <Box sx={{ mt: 2, width: "100%" }} color="white" padding={"4px"}>
       <div>
         {" "}
         <Box display={"flex"} justifyContent={"space-between"}>
@@ -21,7 +22,8 @@ export default function TicketContent() {
         <Box className="grid-container">
           <div className="grid-line"></div>
           <div className="grid-box">
-            Profit Left:<span style={{ color: "white" }}>6%</span>{" "}
+            <p>Profit Left:</p>
+            <p style={{ color: "white" }}>6%</p>{" "}
           </div>
           <div className="grid-line"></div>
         </Box>
@@ -39,26 +41,19 @@ export default function TicketContent() {
         </Box>
       </div>
 
-      <Box
+      <Typography
         sx={{
-          width: "400px",
-          maxWidth: "100%",
-          overflow: "hidden",
-          display: "flex ",
-          justifyContent: "center",
+          fontFamily: "Poppins, sans-serif",
+          fontSize: { xs: "14px", md: "16px" },
           mt: 4,
+          width:{ lg:"450px",md:"550px"},
+          maxWidth: "100%",
         }}
       >
-        <Typography
-          sx={{
-            fontFamily: "Poppins, sans-serif",
-          }}
-        >
-          Bitcoin's recent market trends suggest a promising upward trajectory.
-          Analysts are optimistic about its potential niche is creased
-          institutional interest.
-        </Typography>
-      </Box>
+        Bitcoin's recent market trends suggest a promising upward trajectory.
+        Analysts are optimistic about its potential niche is creased
+        institutional interest.
+      </Typography>
     </Box>
   );
 }

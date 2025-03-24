@@ -7,10 +7,20 @@
 
 .sidebar-li {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20;
+}
+
+ul {
+  list-style-type: none;
+  gap: 2;
+}
+
+.typo-tags {
+  display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 20;
-  margin-top: 30;
-  padding-left: 15;
-  margin-left: 50;
+  gap: 15;
+  margin-bottom: 30px;
 }

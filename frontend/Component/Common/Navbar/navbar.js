@@ -77,42 +77,50 @@ const Navbar = () => {
           {isMobile ? (
             <>
               {/* Mobile Layout */}
-
-              <IconButton onClick={() => setOpenMenu(!openMenu)}>
-                <MenuIcon sx={{ color: "white" }} />
-              </IconButton>
-              <Box display="flex" alignItems="center">
-                <Search
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    width: "100%",
-                  }}
-                >
-                  <Image
-                    src="/images/logo.svg"
-                    alt="ct"
-                    width={25}
-                    height={25}
-                  />
-
-                  <StyledInputBase
-                    placeholder="Search"
-                    inputProps={{ "aria-label": "search" }}
-                    style={{ flex: 1, marginLeft: "10px" }}
-                  />
-                </Search>
-              </Box>
-
-              <Avatar
+              <Box
                 sx={{
-                  border: "1px solid #797979",
-                  color: "#5A0E61",
-                  backgroundColor: "#D6AADA",
+                  display: "flex",
+                  justifyContent: "space-evenly",
+                  alignItems: "center",
+                  marginRight: { xs: 0, md:20 },
                 }}
               >
-                A
-              </Avatar>
+                <IconButton onClick={() => setOpenMenu(!openMenu)}>
+                  <MenuIcon sx={{ color: "white" }} />
+                </IconButton>
+                <Box display="flex" alignItems="center">
+                  <Search
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      width: "100%",
+                    }}
+                  >
+                    <Image
+                      src="/images/logo.svg"
+                      alt="ct"
+                      width={25}
+                      height={25}
+                    />
+
+                    <StyledInputBase
+                      placeholder="Search"
+                      inputProps={{ "aria-label": "search" }}
+                      style={{ flex: 1, marginLeft: "10px" }}
+                    />
+                  </Search>
+                </Box>
+
+                <Avatar
+                  sx={{
+                    border: "1px solid #797979",
+                    color: "#5A0E61",
+                    backgroundColor: "#D6AADA",
+                  }}
+                >
+                  A
+                </Avatar>
+              </Box>
             </>
           ) : (
             <>

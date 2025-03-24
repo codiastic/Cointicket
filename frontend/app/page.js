@@ -308,7 +308,8 @@ export default function Home() {
             {/* Ticket */}
             <BasicTicket />
           </Box>
-          {/* <MobileNav /> */}
+          {/* boottom nav */}
+          <MobileNav />
         </>
       ) : (
         // desktop-------------------------------------------------------------------------------------------------------

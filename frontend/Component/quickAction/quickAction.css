@@ -26,7 +26,7 @@
 }
 
 /* Responsive Styling */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 564px) {
   .middle-tab {
     display: flex;
     justify-content: space-evenly; /* Keeps items evenly spaced */
@@ -40,7 +40,7 @@
     flex: 0 1 24%; /* ✅ Ensures exactly 4 items fit without overflowing */
     min-width: 45px; /* Prevents shrinking too much */
     max-width: 60px; /* Prevents growing too much */
-    height: 55px; /* Adjusts height for proper fit */
+    height: 60px; /* Adjusts height for proper fit */
     font-size: 6px !important;
     display: flex;
     justify-content: center;
@@ -49,7 +49,18 @@
   }
 
   .middle-box img {
-    width: 45px !important; /* Force icons to be 20px */
-    height: 20px !important;
+    width: 35px !important; /* Force icons to be 20px */
+    height: 25px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .middle-tab {
+    display: flex;
+    justify-content: space-evenly; /* Keeps items evenly spaced */
+    gap: 6px; /* Reduce gap to avoid overflow */
+    padding: 0px;
+    width: 100%; /* Ensures it fits inside the screen */
+    margin-top: 4;
   }
 }

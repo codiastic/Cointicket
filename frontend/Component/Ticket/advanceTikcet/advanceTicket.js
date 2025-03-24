@@ -11,23 +11,22 @@ import "../basicTicket/basicTicket.css";
 import "./advanceTicket.css";
 import UserGrid from "../../userGrid/userGrid";
 import CoinIndicator from "../coinIndicator/coinIndicator";
-import TicketContent from "../ticketContents/ticketContent";
+import TicketContent from "../ticketContents/basicTicketContent";
 import TicketInteraction from "../ticketInteraction/ticketInteraction";
 import AdvanceTicketContent from "../ticketContents/advanceTicketContent";
 const AdvanceTicket = () => {
   return (
     <>
       <Box className="ticket">
-        <Box className="user-grid-container">
-          <UserGrid />
-        </Box>
-
-        <IconButton>
-          <BookmarkAddOutlinedIcon sx={{ color: "white" }} />
-        </IconButton>
-        <IconButton>
-          <MoreVertIcon sx={{ color: "white" }} />
-        </IconButton>
+        <UserGrid />
+        <div style={{ display: "flex" }}>
+          <IconButton>
+            <BookmarkAddOutlinedIcon sx={{ color: "white" }} />
+          </IconButton>
+          <IconButton>
+            <MoreVertIcon sx={{ color: "white" }} />
+          </IconButton>
+        </div>
       </Box>
       <div className="tags-div">
         <div className="tag-tech">
@@ -37,7 +36,9 @@ const AdvanceTicket = () => {
             width={12}
             height={12}
           />
-          <Typography sx={{ color: "#C191FF" }}>Technical</Typography>
+          <Typography sx={{ color: "#C191FF", fontSize: "10px" }}>
+            Technical
+          </Typography>
         </div>
         <div className="tag-fundamental">
           <Image
@@ -46,7 +47,9 @@ const AdvanceTicket = () => {
             width={12}
             height={12}
           />
-          <Typography sx={{ color: "#FFAE5D" }}>Fundamental</Typography>
+          <Typography sx={{ color: "#FFAE5D", fontSize: "10px" }}>
+            Fundamental
+          </Typography>
         </div>
       </div>
       <Box className="date-indicator">

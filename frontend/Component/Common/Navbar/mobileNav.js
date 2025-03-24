@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { Box, Button } from "@mui/material";
 import Image from "next/image";
@@ -8,15 +9,25 @@ const MobileNav = () => {
   return (
     <Box
       sx={{
-        width: "390px",
+        position: "fixed",
+        bottom: "6px",
+        right: 0,
+        width: "100%",
+        height: "60px",
         border: "1px solid #797979",
-        borderRadius: 24,
+        borderRadius: "12px",
         display: "flex",
-        justifyContent: "space-between", // Distributes items evenly
-        padding: "20px",
+        justifyContent: "space-evenly", // Distributes items evenly
+        alignItems: "center",
+        gap: "2px",
+        background: "rgba(255, 255, 255, 0.1)", // Transparent background
+        backdropFilter: "blur(10px)", // Blur effect
+        WebkitBackdropFilter: "blur(10px)",
+        zIndex: 1000,
       }}
     >
       {/** Home */}
+
       <Box
         sx={{
           display: "flex",
@@ -25,13 +36,14 @@ const MobileNav = () => {
           gap: "8px",
         }}
       >
-        <HomeOutlinedIcon fontSize="large" sx={{ color: "white" }} />
+        <HomeOutlinedIcon fontSize="18px" sx={{ color: "white" }} />
         <Button
           sx={{
             textAlign: "center",
             minWidth: "unset",
             padding: 0,
             color: "white",
+            fontSize: "10px",
           }}
         >
           HOME
@@ -47,8 +59,16 @@ const MobileNav = () => {
           gap: "8px",
         }}
       >
-        <Image src="/images/workshop.svg" alt="ct" width={30} height={30} />
-        <Button sx={{ textAlign: "center", minWidth: "unset", padding: 0 }}>
+        <Image src="/images/workshop.svg" alt="ct" width={18} height={18} />
+        <Button
+          sx={{
+            textAlign: "center",
+            minWidth: "unset",
+            padding: 0,
+            fontSize: "10px",
+            color: "white",
+          }}
+        >
           CT Workshop
         </Button>
       </Box>
@@ -62,8 +82,16 @@ const MobileNav = () => {
           gap: "8px",
         }}
       >
-        <Image src="/images/alpha.svg" alt="ct" width={30} height={30} />
-        <Button sx={{ textAlign: "center", minWidth: "unset", padding: 0 }}>
+        <Image src="/images/alpha.svg" alt="ct" width={18} height={18} />
+        <Button
+          sx={{
+            textAlign: "center",
+            minWidth: "unset",
+            padding: 0,
+            fontSize: "10px",
+            color: "white",
+          }}
+        >
           CT Alpha
         </Button>
       </Box>
@@ -78,10 +106,18 @@ const MobileNav = () => {
         }}
       >
         <NotificationsNoneOutlinedIcon
-          fontSize="large"
+          fontSize="18px"
           sx={{ color: "white" }}
         />
-        <Button sx={{ textAlign: "center", minWidth: "unset", padding: 0 }}>
+        <Button
+          sx={{
+            textAlign: "center",
+            minWidth: "unset",
+            padding: 0,
+            fontSize: "10px",
+            color: "white",
+          }}
+        >
           Notifications
         </Button>
       </Box>

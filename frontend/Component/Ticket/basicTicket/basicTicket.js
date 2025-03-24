@@ -10,37 +10,54 @@ import "./basicTicket.css";
 // import "../../app/home.css";
 import UserGrid from "../../userGrid/userGrid";
 import CoinIndicator from "../coinIndicator/coinIndicator";
-import TicketContent from "../ticketContents/ticketContent";
 import TicketInteraction from "../ticketInteraction/ticketInteraction";
+import BasicTicketContent from "../ticketContents/basicTicketContent";
 
 const BasicTicket = () => {
   return (
     <>
       {/* header */}
       <Box className="ticket">
-        <Box className="user-grid-container">
-          <UserGrid />
-        </Box>
-        <IconButton>
-          <BookmarkAddOutlinedIcon sx={{ color: "white" }} />
-        </IconButton>
-        <IconButton>
-          <MoreVertIcon sx={{ color: "white", marginRight: 1 }} />
-        </IconButton>
+        <UserGrid />
+        <div style={{ display: "flex", gap:8 }}>
+          <IconButton sx={{ padding: { xs: 0, md: "8px" } }}>
+            <BookmarkAddOutlinedIcon
+              sx={{
+                color: "white",
+                fontSize: { xs: "16px", md: "24px" },
+                marginLeft: 1,
+              }}
+            />
+          </IconButton>
+          <IconButton sx={{ padding: { xs: 0, md: "8px" } }}>
+            <MoreVertIcon
+              sx={{
+                color: "white",
+                fontSize: { xs: "16px", md: "24px" },
+              }}
+            />
+          </IconButton>
+        </div>
       </Box>
       {/* indicator */}
       <Box className="date-indicator">
-        <Typography sx={{ color: "#08FF00" }}>DD/MM/YY</Typography>
+        <Typography
+          sx={{ color: "#08FF00", fontSize: { xs: "12px", md: "16px" } }}
+        >
+          DD/MM/YY
+        </Typography>
         <Box className="indicator">
-          <CircleIcon sx={{ fontSize: "12px" }} />
-          <Typography>Open</Typography>
+          <CircleIcon sx={{ fontSize: { xs: "8px", md: "10px" } }} />
+          <Typography sx={{ fontSize: { xs: "10px", md: "16px" } }}>
+            Open
+          </Typography>
         </Box>
       </Box>
       {/* coin indicator */}
       <CoinIndicator />
 
       {/* content */}
-      <TicketContent />
+      <BasicTicketContent />
 
       {/* button interactions */}
       <TicketInteraction />

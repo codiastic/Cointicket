@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
@@ -12,38 +13,28 @@ export default function Sidebar() {
   return (
     <>
       <Box className="sidebar-li">
-        <Button className="typo-style">
-          {" "}
-          <VideocamOutlinedIcon fontSize="medium" sx={{ color: "white" }} />
-          Tutorials
-        </Button>
-      </Box>
-      <Box className="sidebar-li">
-        <Button className="typo-style">
-          {" "}
-          <TaskAltOutlinedIcon fontSize="medium" sx={{ color: "white" }} />
-          Get Verified
-        </Button>
-      </Box>
-      <Box className="sidebar-li">
-        <Button className="typo-style">
-          {" "}
-          <Image src="/images/gift.svg" alt="invite" width={24} height={24} />
-          Invite Friends
-        </Button>
-      </Box>
-      <Box className="sidebar-li">
-        <Button className="typo-style">
-          <InfoOutlinedIcon fontSize="medium" sx={{ color: "white" }} />
-          FAQ
-        </Button>
-      </Box>
-      <Box className="sidebar-li">
-        <Button className="typo-style">
-          {" "}
-          <CallOutlinedIcon fontSize="medium" sx={{ color: "white" }} />
-          Contact Us
-        </Button>
+        <ul className="typo-style">
+          <div className="typo-tags">
+            <VideocamOutlinedIcon />
+            <li>Tutorials</li>
+          </div>
+          <div className="typo-tags">
+            <TaskAltOutlinedIcon />
+            <li>Get Verified</li>
+          </div>
+          <div className="typo-tags">
+            <Image src="/images/gift.svg" alt="invite" width={24} height={24} />
+            <li>Invite Friends</li>
+          </div>
+          <div className="typo-tags">
+            <InfoOutlinedIcon />
+            <li>FAQ's</li>
+          </div>
+          <div className="typo-tags">
+            <CallOutlinedIcon />
+            <li>Contact Us</li>
+          </div>
+        </ul>
       </Box>
     </>
   );
