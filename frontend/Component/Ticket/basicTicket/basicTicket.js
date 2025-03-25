@@ -16,51 +16,53 @@ import BasicTicketContent from "../ticketContents/basicTicketContent";
 const BasicTicket = () => {
   return (
     <>
-      {/* header */}
-      <Box className="ticket">
-        <UserGrid />
-        <div style={{ display: "flex", gap:8 }}>
-          <IconButton sx={{ padding: { xs: 0, md: "8px" } }}>
-            <BookmarkAddOutlinedIcon
-              sx={{
-                color: "white",
-                fontSize: { xs: "16px", md: "24px" },
-                marginLeft: 1,
-              }}
-            />
-          </IconButton>
-          <IconButton sx={{ padding: { xs: 0, md: "8px" } }}>
-            <MoreVertIcon
-              sx={{
-                color: "white",
-                fontSize: { xs: "16px", md: "24px" },
-              }}
-            />
-          </IconButton>
-        </div>
-      </Box>
-      {/* indicator */}
-      <Box className="date-indicator">
-        <Typography
-          sx={{ color: "#08FF00", fontSize: { xs: "12px", md: "16px" } }}
-        >
-          DD/MM/YY
-        </Typography>
-        <Box className="indicator">
-          <CircleIcon sx={{ fontSize: { xs: "8px", md: "10px" } }} />
-          <Typography sx={{ fontSize: { xs: "10px", md: "16px" } }}>
-            Open
-          </Typography>
+      <div className="ticket-container">
+        {/* header */}
+        <Box className="ticket">
+          <UserGrid />
+          <div style={{ display: "flex", gap: { md: 0, xs: 8 } }}>
+            <IconButton sx={{ padding: { xs: 0, md: "8px" } }}>
+              <BookmarkAddOutlinedIcon
+                sx={{
+                  color: "white",
+                  fontSize: { xs: "16px", md: "24px" },
+                  marginLeft: 1,
+                }}
+              />
+            </IconButton>
+            <IconButton sx={{ padding: { xs: 0, md: "8px" } }}>
+              <MoreVertIcon
+                sx={{
+                  color: "white",
+                  fontSize: { xs: "16px", md: "24px" },
+                }}
+              />
+            </IconButton>
+          </div>
         </Box>
-      </Box>
-      {/* coin indicator */}
-      <CoinIndicator />
+        {/* indicator */}
+        <Box className="date-indicator">
+          <Typography
+            sx={{ color: "#08FF00", fontSize: { xs: "12px", md: "16px" } }}
+          >
+            DD/MM/YY
+          </Typography>
+          <Box className="indicator">
+            <CircleIcon sx={{ fontSize: { xs: "8px", md: "10px" } }} />
+            <Typography sx={{ fontSize: { xs: "10px", md: "16px" } }}>
+              Open
+            </Typography>
+          </Box>
+        </Box>
+        {/* coin indicator */}
+        <CoinIndicator />
 
-      {/* content */}
-      <BasicTicketContent />
+        {/* content */}
+        <BasicTicketContent />
 
-      {/* button interactions */}
-      <TicketInteraction />
+        {/* button interactions */}
+        <TicketInteraction />
+      </div>
     </>
   );
 };

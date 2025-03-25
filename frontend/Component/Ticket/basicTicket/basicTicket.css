@@ -11,10 +11,26 @@
   margin-top: 5%;
 }
 
+@media screen and (max-width: 574px) {
+  .ticket-container {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .ticket-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 18%;
+    width: 64%;
+  }
   .ticket {
     padding: 2px;
     width: 100%;
+    justify-content: space-around;
   }
 }
 
@@ -22,6 +38,8 @@
   display: flex;
   justify-content: space-between;
   padding: 15;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .indicator {

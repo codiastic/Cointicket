@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
 export default function BasicTicketContent() {
   const tradeType = "Bullish";
   return (
-    <Box sx={{ mt: 2, width: "100%" }} color="white" padding={"4px"}>
+    <Box sx={{ mt: 2, width: "100%" }} color="white" padding={"0 1 0 1"}>
       <div>
         {" "}
         <Box display={"flex"} justifyContent={"space-between"}>
@@ -46,7 +46,7 @@ export default function BasicTicketContent() {
           fontFamily: "Poppins, sans-serif",
           fontSize: { xs: "14px", md: "16px" },
           mt: 4,
-          width:{ lg:"450px",md:"550px"},
+          width: { lg: "450px", md: "550px" },
           maxWidth: "100%",
         }}
       >

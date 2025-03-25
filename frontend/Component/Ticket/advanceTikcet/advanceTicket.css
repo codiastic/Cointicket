@@ -26,3 +26,23 @@
   justify-content: flex-start;
   gap: 15;
 }
+
+@media screen and (max-width: 768px) {
+  .tags-div {
+    margin-top: 14;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15;
+    margin-left: 80px;
+  }
+}
+
+@media screen and (max-width: 574px) {
+  .tags-div {
+    margin-top: 14;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15;
+    margin-left: 48px !important;
+  }
+}

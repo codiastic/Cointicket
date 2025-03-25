@@ -43,7 +43,7 @@ export default function Home() {
 
   const cryptoData = [
     {
-      name: "BTC",
+      name: '"BTC"',
       price: "$83,651.18 (1.23)",
       color: "#48A648",
       icon: "/images/btc.svg",
@@ -307,13 +307,14 @@ export default function Home() {
 
             {/* Ticket */}
             <BasicTicket />
+            <AdvanceTikcet />
           </Box>
           {/* boottom nav */}
           <MobileNav />
         </>
       ) : (
         // desktop-------------------------------------------------------------------------------------------------------
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 4 }}>
+        <Box className="main-content-div">
           {/* sidebar */}
           <Box
             className="sidebar"
@@ -341,10 +342,8 @@ export default function Home() {
                 marginTop: 1,
                 width: "94%",
                 height: "auto",
-                backgroundColor: "#1C1C1C",
+                border: "1px solid #3D3D3D",
                 borderRadius: "8px",
-                display: "flex",
-                justifyContent: "space-between",
                 padding: 2,
               }}
             >
@@ -352,38 +351,81 @@ export default function Home() {
                 <Avatar
                   sx={{
                     border: "1px solid #797979",
-                    color: "#5A0E61",
-                    backgroundColor: "#D6AADA",
+                    color: "#000000",
+                    backgroundColor: "#CEB4FF",
                   }}
                 >
                   A
                 </Avatar>
-                <TextField
-                  placeholder="What's Your Thought ?"
-                  variant="standard" // Removes default box styling
-                  // multiline
-                  InputProps={{
-                    disableUnderline: true, // Removes the bottom underline
-                    sx: {
-                      color: "white", // White text
-                      fontFamily: "Sora, sans-serif", // Custom font
-                    },
+
+                <textarea
+                  placeholder="What's Your Thoughts ?"
+                  onInput={(e) => {
+                    let words = e.target.value
+                      .split(/\s+/)
+                      .filter((word) => word !== ""); // Count words
+                    if (words.length > 10) {
+                      e.target.value = e.target.value.substring(
+                        0,
+                        e.target.selectionStart - 1
+                      ); // Prevent more input
+                    }
                   }}
-                  sx={{
+                  style={{
                     backgroundColor: "transparent", // Transparent background
                     border: "none", // No border
                     outline: "none", // No active outline
-                    width: "auto", // Full width
-                    "& .MuiInputBase-input::placeholder": {
-                      color: "white", // Transparent white placeholder
-                      fontFamily: "Poppins, sans-serif",
-                    },
+                    width: "auto",
+                    color: "white",
+                    width: "100%",
                   }}
                 />
               </Box>
-              <Button variant="contained" className="post-button">
-                Post
-              </Button>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginTop: 20,
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: 20,
+                    paddingLeft: 10,
+                  }}
+                >
+                  <Image
+                    src="/images/Ticket.svg"
+                    alt="ticket"
+                    width={26}
+                    height={26}
+                  />
+                  <Image
+                    src="/images/polls.svg"
+                    alt="poll"
+                    width={24}
+                    height={24}
+                  />
+                  <Image
+                    src="/images/insight.svg"
+                    alt="insight"
+                    width={24}
+                    height={24}
+                  />
+                  <Image
+                    src="/images/upload.svg"
+                    alt="upload"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <Button variant="contained" className="post-button">
+                  Post
+                </Button>
+              </div>
             </Box>
 
             {/* tabs */}

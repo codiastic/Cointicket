@@ -10,9 +10,33 @@
   border-bottom: 1px solid #323232 !important;
 }
 
+.nav-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.search-input {
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 5px;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-content {
+    justify-content: space-between;
+    padding: 10;
+  }
+}
+
 .search {
   display: flex;
-  margin-left: 10%;
 }
 
 .right-section {
