@@ -40,7 +40,7 @@ const LikeButton = () => {
         <RocketIcon
           sx={{
             color: isLiked ? "#FF6200" : "#7a7a7a", // Change color after animation
-            fontSize: 30,
+            fontSize: 28,
           }}
         />
       )}

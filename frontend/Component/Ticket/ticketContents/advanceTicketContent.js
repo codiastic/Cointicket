@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
@@ -8,7 +8,7 @@ export default function AdvanceTicketContent() {
   const tradeType = "Bullish";
   return (
     <>
-      <Box sx={{ mt: 2, width: "100%" }} color="white" padding={"4px"}>
+      <Box className="main-content-box">
         <div>
           {" "}
           <Box display={"flex"} justifyContent={"space-between"}>

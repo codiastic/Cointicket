@@ -25,13 +25,63 @@
   color: #fff;
   font-size: 16px;
   padding: 5px;
-  margin-left: 20px;
+  width: 100%;
 }
 
-@media screen and (max-width: 768px) {
+.search-fieldbox {
+  display: flex;
+  width: "180px";
+  background-color: #232323;
+  border-radius: 8px;
+  padding: 8px 12px;
+  gap: 1;
+}
+
+.nav-ul li {
+  cursor: pointer;
+  color: #565656; /* Default color */
+  font-weight: normal;
+  position: relative;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-ul li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit; /* Inherit color from li */
+  gap: 4px;
+}
+
+/* Default state: Icons & images in gray */
+.nav-ul li:not(:nth-last-child(3)) img,
+.nav-ul li:not(:nth-last-child(3)) svg {
+  filter: grayscale(100%) brightness(0.7); /* Make icons & images gray */
+  transition: filter 0.3s ease, color 0.3s ease;
+}
+
+/* Active state: Text, icons & images turn white */
+.nav-ul li.active {
+  font-weight: bold;
+  color: white;
+}
+
+.nav-ul li.active img,
+.nav-ul li.active svg {
+  filter: grayscale(0%) brightness(1); /* Make icons & images full color */
+}
+@media screen and (min-width: 768px) {
   .nav-content {
     justify-content: space-between;
     padding: 10;
+  }
+
+  .search-fieldbox {
+    width: 360px;
   }
 }
 
@@ -58,6 +108,7 @@
   border: 2px solid !important;
   border-radius: 8px !important;
   color: #fcb456 !important;
+  padding: 10;
 }
 
 .nav-button {

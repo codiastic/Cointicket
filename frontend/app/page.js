@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useRef } from "react";
 import "./home.css";
 import Navbar from "@/Component/Common/Navbar/navbar";
 import {
@@ -13,9 +13,6 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import Tab from "@mui/material/Tab";
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
 
 import Image from "next/image";
 import BasicTicket from "../Component/Ticket/basicTicket/basicTicket";
@@ -28,16 +25,12 @@ import QuickAction from "../Component/quickAction/quickAction";
 import Banner from "../Component/banner/banner";
 import UpgrateToCT from "@/Component/upgradeCT/upgradeToCT";
 import AdvanceTikcet from "@/Component/Ticket/advanceTikcet/advanceTicket";
+import Tabs from "@/Component/tabs/tabs";
 
 export default function Home() {
   // tabs
-  const [value, setValue] = React.useState("1");
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   // responsive
-  // const isMobile = useMediaQuery("(max-width:575px)");
 
   const isMobile = useMediaQuery("(max-width:768px)"); // Detect mobile
 
@@ -78,7 +71,32 @@ export default function Home() {
       color: "#48A648",
       icon: "/images/avalanche.svg",
     },
+    {
+      name: "Avalanche",
+      price: "$83,651.18 (1.23)",
+      color: "#48A648",
+      icon: "/images/avalanche.svg",
+    },
+    {
+      name: "Avalanche",
+      price: "$83,651.18 (1.23)",
+      color: "#48A648",
+      icon: "/images/avalanche.svg",
+    },
   ];
+
+  const scrollRef = useRef(null); // Reference for scrollable div
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const scrollAmount = 300; // Adjust scroll distance
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth", // Smooth scrolling effect
+      });
+    }
+  };
+
   return (
     <Box>
       <Navbar />
@@ -88,18 +106,18 @@ export default function Home() {
       <Box
         sx={{
           display: "flex",
+          justifyContent: "center",
           alignItems: "center",
           gap: 2,
           height: "90px",
           borderBottom: "1px solid #323232",
-          padding: "0 10px",
-          overflowX: isMobile ? "auto" : "visible", // Enable scroll on mobile
-          whiteSpace: isMobile ? "nowrap" : "normal", // Keep items in row
+          padding: "0 2px",
         }}
       >
         {/* Only show navigation buttons on desktop */}
         {!isMobile && (
           <IconButton
+            onClick={() => scroll("left")}
             sx={{
               width: "60px",
               height: "60px",
@@ -113,12 +131,17 @@ export default function Home() {
           </IconButton>
         )}
 
-        {/* Crypto Cards (Scrollable on Mobile) */}
+        {/* Scrollable Cards */}
         <Box
+          ref={scrollRef}
           sx={{
             display: "flex",
             gap: 2,
-            scrollbarWidth: "none", // Hide scrollbarF
+            overflowX: "auto", // Enables scrolling
+            scrollBehavior: "smooth", // Smooth scrolling
+            scrollbarWidth: "none", // Hide scrollbar for Firefox
+            "&::-webkit-scrollbar": { display: "none" }, // Hide scrollbar for Chrome/Safari
+            flex: "1", // Makes it take full available space
           }}
         >
           {cryptoData.map((crypto, index) => (
@@ -128,7 +151,7 @@ export default function Home() {
                   display: "flex",
                   alignItems: "center",
                   gap: 2,
-                  padding: "5px",
+                  // padding: "12px",
                 }}
               >
                 <Image
@@ -142,7 +165,7 @@ export default function Home() {
                     sx={{
                       fontWeight: 600,
                       color: "white",
-                      fontSize: isMobile ? "14px" : "16px",
+                      fontSize: isMobile ? "12px" : "14px",
                     }}
                   >
                     {crypto.name}
@@ -151,7 +174,7 @@ export default function Home() {
                     sx={{
                       fontWeight: 500,
                       color: crypto.color,
-                      fontSize: isMobile ? "14px" : "16px",
+                      fontSize: isMobile ? "10px" : "12px",
                     }}
                   >
                     {crypto.price}
@@ -165,6 +188,7 @@ export default function Home() {
         {/* Only show navigation buttons on desktop */}
         {!isMobile && (
           <IconButton
+            onClick={() => scroll("right")}
             sx={{
               width: "60px",
               height: "60px",
@@ -189,90 +213,9 @@ export default function Home() {
             </Box>
 
             {/* tabs */}
-            <Box
-              sx={{
-                width: "100%",
-                typography: "body1",
-                // borderBottom: "1px solid #8B8B8B",
-              }}
-            >
-              <TabContext
-                value={value}
-                sx={{
-                  "& .MuiTabs-indicator": {
-                    backgroundColor: "white",
-                  },
-                  "& .MuiTab-root": {
-                    color: "white",
-                    minWidth: "auto", // Ensures the tabs shrink if needed
-                    padding: "6px 12px", // Reduces padding for a smaller tab
-                    fontSize: "10px", // Adjust text size for mobile
-                  },
-                  "& .Mui-selected": {
-                    color: "white !important",
-                  },
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-evenly", // Centers tabs
-                    alignItems: "center",
-                    padding: "2px 4px", // Reduces padding for a tighter look
-                    mt: 1,
-                  }}
-                >
-                  <TabList
-                    onChange={handleChange}
-                    aria-label="lab API tabs example"
-                    variant="fullWidth" // Ensures tabs take equal space
-                    sx={{
-                      // width: "100%",
-                      "& .MuiTabs-indicator": {
-                        backgroundColor: "white",
-                      },
-                    }}
-                  >
-                    <Tab
-                      label="Latest"
-                      value="1"
-                      sx={{
-                        flex: 1,
-                        textAlign: "center",
-                        fontSize: "10px", // Smaller text for mobile
-                        padding: "6px 8px", // Compact padding
-                        color: "white",
-                        "&.Mui-selected": { color: "white" },
-                      }}
-                    />
-                    <Tab
-                      label="My Squad"
-                      value="2"
-                      sx={{
-                        flex: 1,
-                        textAlign: "center",
-                        fontSize: "10px",
-                        padding: "6px 8px",
-                        color: "white",
-                        "&.Mui-selected": { color: "white" },
-                      }}
-                    />
-                    <Tab
-                      label="Top Tickets"
-                      value="3"
-                      sx={{
-                        flex: 1,
-                        textAlign: "center",
-                        fontSize: "10px",
-                        padding: "6px 8px",
-                        color: "white",
-                        "&.Mui-selected": { color: "white" },
-                      }}
-                    />
-                  </TabList>
-                </Box>
-              </TabContext>
-            </Box>
+            <div style={{ width: "100%", borderBottom: "1px solid #8B8B8B" }}>
+              <Tabs />
+            </div>
 
             {/* buttons */}
             <Box className="screen-buttons">
@@ -371,136 +314,22 @@ export default function Home() {
                       ); // Prevent more input
                     }
                   }}
-                  style={{
-                    backgroundColor: "transparent", // Transparent background
-                    border: "none", // No border
-                    outline: "none", // No active outline
-                    width: "auto",
-                    color: "white",
-                    width: "100%",
-                  }}
+                  className="create-text"
                 />
-              </Box>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginTop: 20,
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: 20,
-                    paddingLeft: 10,
-                  }}
-                >
-                  <Image
-                    src="/images/Ticket.svg"
-                    alt="ticket"
-                    width={26}
-                    height={26}
-                  />
-                  <Image
-                    src="/images/polls.svg"
-                    alt="poll"
-                    width={24}
-                    height={24}
-                  />
-                  <Image
-                    src="/images/insight.svg"
-                    alt="insight"
-                    width={24}
-                    height={24}
-                  />
-                  <Image
-                    src="/images/upload.svg"
-                    alt="upload"
-                    width={24}
-                    height={24}
-                  />
-                </div>
                 <Button variant="contained" className="post-button">
-                  Post
+                  Create
                 </Button>
-              </div>
+              </Box>
             </Box>
 
             {/* tabs */}
             <Box
               sx={{
                 width: "100%",
-                typography: "body1",
                 borderBottom: "1px solid #8B8B8B",
               }}
             >
-              <TabContext
-                value={value}
-                sx={{
-                  "& .MuiTabs-indicator": {
-                    backgroundColor: "white", // Change indicator color
-                  },
-                  "& .MuiTab-root": {
-                    color: "white", // Unselected tab color
-                  },
-                  "& .Mui-selected": {
-                    color: "white !important", // Selected tab color
-                  },
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between", // Distributes the tabs
-                    alignItems: "center",
-                    padding: "8px 16px",
-                  }}
-                >
-                  <TabList
-                    onChange={handleChange}
-                    aria-label="lab API tabs example"
-                    sx={{
-                      width: "100%",
-                      "& .MuiTabs-indicator": {
-                        backgroundColor: "white",
-                      },
-                    }}
-                  >
-                    <Tab
-                      label="Latest"
-                      value="1"
-                      sx={{
-                        marginLeft: "16px",
-                        alignSelf: "flex-start",
-                        color: "white", // Default color
-                        "&.Mui-selected": { color: "white" },
-                      }}
-                    />
-                    <Tab
-                      label="My Squad"
-                      value="2"
-                      sx={{
-                        margin: "0 auto",
-                        color: "white", // Default color
-                        "&.Mui-selected": { color: "white" },
-                      }}
-                    />{" "}
-                    {/* Centers the tab */}
-                    <Tab
-                      label="Top Tickets"
-                      value="3"
-                      sx={{
-                        marginRight: "16px",
-                        alignSelf: "flex-end",
-                        color: "white", // Default color
-                        "&.Mui-selected": { color: "white" },
-                      }}
-                    />
-                  </TabList>
-                </Box>
-              </TabContext>
+              <Tabs />
             </Box>
 
             {/* buttons */}

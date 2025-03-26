@@ -5,7 +5,7 @@ import { Box, Typography } from "@mui/material";
 export default function BasicTicketContent() {
   const tradeType = "Bullish";
   return (
-    <Box sx={{ mt: 2, width: "100%" }} color="white" padding={"0 1 0 1"}>
+    <Box className="main-content-box">
       <div>
         {" "}
         <Box display={"flex"} justifyContent={"space-between"}>

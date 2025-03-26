@@ -1,0 +1,32 @@
+.custom-ul {
+  display: flex;
+  justify-content: space-evenly;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.custom-ul li {
+  cursor: pointer;
+  color: #b8b8b8; /* Default color */
+  font-weight: normal;
+  position: relative;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+}
+
+.custom-ul li.active {
+  font-weight: bold;
+  color: white;
+}
+
+.custom-ul li.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+}

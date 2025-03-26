@@ -27,3 +27,10 @@
   padding: 4 !important;
   gap: 4;
 }
+
+.main-content-box {
+  margin-top: 20px;
+  width: 100%;
+  color: white;
+  padding: 0 1 0 1;
+}

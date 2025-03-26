@@ -47,10 +47,11 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  color: "white",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
+  color: "white",
   fontFamily: "Poppins, 'sans-serif'",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
@@ -60,6 +61,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     width: "100%",
     [theme.breakpoints.up("md")]: {
       width: "20ch",
+    },
+    "::placeholder": {
+      color: "white",
     },
   },
 }));
@@ -78,6 +82,7 @@ const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const [placeholder, setPlaceholder] = useState(placeholderTexts[0]);
+  const [activeTab, setActiveTab] = useState("Home");
 
   let index = 0;
 
@@ -91,7 +96,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="nav-container" position={isMobile ? "static" : "sticky"}>
+    <nav
+      className="nav-container"
+      style={{ position: isMobile ? "static" : "sticky", top: 0, zIndex: 1000 }}
+    >
       {isMobile ? (
         <>
           {/* Mobile Layout */}
@@ -99,34 +107,20 @@ const Navbar = () => {
             <IconButton onClick={() => setOpenMenu(!openMenu)}>
               <MenuIcon sx={{ color: "white" }} />
             </IconButton>
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="space-around"
-            >
-              <Search
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  width: "100%",
-                  backgroundColor: "#232323",
-                  padding: "8px 12px",
-                  borderRadius: "8px",
-                }}
-              >
-                <Image
-                  src="/images/logo.svg"
-                  alt="ct"
-                  width={25}
-                  height={25}
-                  style={{ marginLeft: "10px" }}
-                />
-                <input
-                  type="text"
-                  placeholder={placeholder}
-                  className="search-input"
-                />
-              </Search>
+            <Box className="search-fieldbox">
+              {" "}
+              <Image
+                src="/images/logo.svg"
+                alt="ct"
+                width={25}
+                height={25}
+                style={{ marginLeft: "4px" }}
+              />
+              <input
+                type="text"
+                placeholder={placeholder}
+                className="search-input"
+              />
             </Box>
 
             <Avatar
@@ -134,6 +128,7 @@ const Navbar = () => {
                 border: "1px solid #797979",
                 color: "#5A0E61",
                 backgroundColor: "#D6AADA",
+                marginLeft: 1,
               }}
             >
               A
@@ -154,40 +149,6 @@ const Navbar = () => {
               />
             </Search>
           </Box>{" "}
-          {/* <Box className="button-box">
-                <Button className="nav-button">
-                  <HomeOutlinedIcon />
-                  Home
-                </Button>
-                <Button className="nav-button">
-                  <Image
-                    src="/images/alpha.svg"
-                    alt="ct"
-                    width={24}
-                    height={24}
-                  />
-                  CT Alpha
-                </Button>
-                <Button className="nav-button">
-                  <Image
-                    src="/images/workshop.svg"
-                    alt="ct"
-                    width={24}
-                    height={24}
-                  />
-                  CT Workshop
-                </Button>
-                <Button className="ct-button">
-                  {" "}
-                  <Image
-                    src="/images/editor_choice.svg"
-                    alt="ct"
-                    width={24}
-                    height={24}
-                  />
-                  CT Pro
-                </Button>
-              </Box> */}
           <div>
             <ul
               style={{
@@ -195,11 +156,14 @@ const Navbar = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 gap: 20,
-                color: "white",
                 fontFamily: "Sora,'sans-serif'",
               }}
+              className="nav-ul"
             >
-              <li>
+              <li
+                className={activeTab === "Home" ? "active" : ""}
+                onClick={() => setActiveTab("Home")}
+              >
                 <a
                   style={{
                     display: "flex",
@@ -212,7 +176,10 @@ const Navbar = () => {
                   Home
                 </a>
               </li>
-              <li>
+              <li
+                className={activeTab === "CT Alpha" ? "active" : ""}
+                onClick={() => setActiveTab("CT Alpha")}
+              >
                 <a
                   style={{
                     display: "flex",
@@ -230,7 +197,10 @@ const Navbar = () => {
                   CT Alpha
                 </a>
               </li>
-              <li>
+              <li
+                className={activeTab === "CT Workshop" ? "active" : ""}
+                onClick={() => setActiveTab("CT Workshop")}
+              >
                 <a
                   style={{
                     display: "flex",
@@ -248,19 +218,11 @@ const Navbar = () => {
                   CT Workshop
                 </a>
               </li>
-              <li>
-                <a
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: 4,
-                    border: "2px solid #FCB456",
-                    borderRadius: "8px",
-                    padding: 10,
-                    color: "white",
-                  }}
-                >
+              <li
+                className={activeTab === "My Squad" ? "active" : ""}
+                onClick={() => setActiveTab("My Squad")}
+              >
+                <a className="ct-button">
                   <Image
                     src="images/editor_choice.svg"
                     alt="alpha"
@@ -290,20 +252,6 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          {/* <Box className="right-section">
-                <IconButton>
-                  <NotificationsNoneOutlinedIcon className="icon" />
-                </IconButton>
-                <Avatar
-                  sx={{
-                    border: "1px solid #797979",
-                    color: "#5A0E61",
-                    backgroundColor: "#D6AADA",
-                  }}
-                >
-                  A
-                </Avatar>
-              </Box> */}
         </>
       )}
     </nav>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 
@@ -12,7 +12,7 @@ export default function Banner() {
           sx={{
             fontFamily: "Inter, sans-serif",
             fontWeight: 800,
-            fontSize: "24px",
+            fontSize: "20px",
             color: "white",
           }}
         >
@@ -22,7 +22,7 @@ export default function Banner() {
           sx={{
             fontFamily: "Inter, sans-serif",
             fontWeight: 800,
-            fontSize: "24px",
+            fontSize: "22px",
             color: "#FFB34F",
           }}
         >
@@ -30,7 +30,13 @@ export default function Banner() {
         </Typography>
         <Button
           variant="contained"
-          sx={{ color: "black", backgroundColor: "white", mb: 2 }}
+          sx={{
+            color: "black",
+            backgroundColor: "white",
+            mb: 2,
+            fontSize: "12px",
+            fontFamily: "Inter, sans-serif",
+          }}
         >
           Read More
         </Button>
