@@ -11,7 +11,6 @@ import "../basicTicket/basicTicket.css";
 import "./advanceTicket.css";
 import UserGrid from "../../userGrid/userGrid";
 import CoinIndicator from "../coinIndicator/coinIndicator";
-import TicketContent from "../ticketContents/basicTicketContent";
 import TicketInteraction from "../ticketInteraction/ticketInteraction";
 import AdvanceTicketContent from "../ticketContents/advanceTicketContent";
 const AdvanceTicket = () => {

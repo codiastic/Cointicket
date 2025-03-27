@@ -26,6 +26,7 @@ import Banner from "../Component/banner/banner";
 import UpgrateToCT from "@/Component/upgradeCT/upgradeToCT";
 import AdvanceTikcet from "@/Component/Ticket/advanceTikcet/advanceTicket";
 import Tabs from "@/Component/tabs/tabs";
+import CreatePost from "@/Component/Ticket/createPost/createPost";
 
 export default function Home() {
   // tabs
@@ -96,6 +97,16 @@ export default function Home() {
       });
     }
   };
+
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
 
   return (
     <Box>
@@ -316,9 +327,16 @@ export default function Home() {
                   }}
                   className="create-text"
                 />
-                <Button variant="contained" className="post-button">
-                  Create
-                </Button>
+                <div>
+                  <Button
+                    variant="contained"
+                    className="post-button"
+                    onClick={handleClickOpen}
+                  >
+                    Create
+                  </Button>
+                  <CreatePost open={open} onClose={handleClose} />
+                </div>
               </Box>
             </Box>
 

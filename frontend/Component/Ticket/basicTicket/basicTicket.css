@@ -11,6 +11,11 @@
   margin-top: 5%;
 }
 
+.ticket-container {
+  border-top: 2px solid #505050;
+  margin-top: 15;
+}
+
 @media screen and (max-width: 574px) {
   .ticket-container {
     display: flex;
