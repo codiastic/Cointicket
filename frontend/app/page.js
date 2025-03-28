@@ -12,6 +12,7 @@ import {
   TextField,
   Typography,
   useMediaQuery,
+  Paper,
 } from "@mui/material";
 
 import Image from "next/image";
@@ -26,7 +27,8 @@ import Banner from "../Component/banner/banner";
 import UpgrateToCT from "@/Component/upgradeCT/upgradeToCT";
 import AdvanceTikcet from "@/Component/Ticket/advanceTikcet/advanceTicket";
 import Tabs from "@/Component/tabs/tabs";
-import CreatePost from "@/Component/Ticket/createPost/createPost";
+import CreateTicket from "@/Component/createPost/createTicket/createTicket";
+// import CreateTicket from "@/Component/Ticket/createPost/createTicket";
 
 export default function Home() {
   // tabs
@@ -99,14 +101,20 @@ export default function Home() {
   };
 
   const [open, setOpen] = useState(false);
+  const [openTicket, setOpenTicket] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const handleTicketOpen = () => {
+    setOpenTicket(true);
   };
   const handleClose = () => {
-    setOpen(false);
+    setOpenTicket(false);
   };
 
+  const buttonRef = useRef(null);
+
+  const handleClickOpen = () => {
+    setOpen(!open);
+  };
 
   return (
     <Box>
@@ -318,7 +326,7 @@ export default function Home() {
                     let words = e.target.value
                       .split(/\s+/)
                       .filter((word) => word !== ""); // Count words
-                    if (words.length > 10) {
+                    if (words.length > 500) {
                       e.target.value = e.target.value.substring(
                         0,
                         e.target.selectionStart - 1
@@ -327,15 +335,80 @@ export default function Home() {
                   }}
                   className="create-text"
                 />
-                <div>
+                <div style={{ position: "relative", display: "inline-block" }}>
                   <Button
+                    ref={buttonRef}
                     variant="contained"
                     className="post-button"
                     onClick={handleClickOpen}
                   >
-                    Create
+                    Post
                   </Button>
-                  <CreatePost open={open} onClose={handleClose} />
+                  {open && (
+                    <Paper
+                      style={{
+                        position: "absolute",
+                        top: "100%", // Below the button
+                        left: "50%", // Center it horizontally
+                        transform: "translateX(-50%)", // Shift back to perfect center
+                        zIndex: 10,
+                        padding: "10px",
+                        marginTop: "8px", // Small gap below the button
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 6,
+                        backgroundColor: "rgba(30, 30, 30, 0.6)", // Semi-transparent background
+                        backdropFilter: "blur(15px)", // Glassmorphism effect
+                        borderRadius: "12px", // Soft rounded edges
+                        boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.3)", // Subtle shadow
+                      }}
+                    >
+                      {/* <Typography
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          fontWeight: 600,
+                          fontFamily: "Poppins,sans-serif",
+                          color: "white",
+                        }}
+                      >
+                        Post
+                      </Typography> */}
+                      <Button
+                        variant="outlined"
+                        className="post-button-pop"
+                        onClick={handleTicketOpen}
+                      >
+                        <Image
+                          src="/images/Ticket.svg"
+                          alt="coins"
+                          width={22}
+                          height={22}
+                        />
+                        Tickets
+                      </Button>
+                      <CreateTicket open={openTicket} onClose={handleClose} />
+                      <Button variant="outlined" className="post-button-pop">
+                        {" "}
+                        <Image
+                          src="/images/polls.svg"
+                          alt="coins"
+                          width={22}
+                          height={22}
+                        />
+                        Polls
+                      </Button>
+                      <Button variant="outlined" className="post-button-pop">
+                        <Image
+                          src="/images/insight.svg"
+                          alt="coins"
+                          width={22}
+                          height={22}
+                        />
+                        Insights
+                      </Button>
+                    </Paper>
+                  )}
                 </div>
               </Box>
             </Box>

@@ -26,8 +26,34 @@
 .prediction-buttons-container {
   display: flex;
   justify-content: center;
-  gap: 50;
+  gap: 10;
   margin-top: 20;
+}
+
+.bullish-button {
+  color: #07cc00 !important;
+  border: 1px solid #07cc00 !important;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.bullish-button:focus,
+.bullish-button:active {
+  background-color: #07cc00 !important;
+  color: white !important;
+}
+
+.bearish-button {
+  color: #cc0003 !important;
+  border: 1px solid #ff1f22 !important;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.bearish-button:focus,
+.bearish-button:active {
+  background-color: #ff1f22 !important;
+  color: white !important;
 }
 
 .percent-main {
@@ -64,4 +90,55 @@
   justify-content: space-around;
   gap: 50;
   margin-top: 20;
+}
+
+.dialog-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 8px 16px;
+  position: relative;
+}
+
+.dialog-title-text {
+  flex-grow: 1;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
+  margin-left: -40px;
+}
+
+.search-coin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  height: 50px;
+  border: 1px solid #3d3d3d;
+  border-radius: 12px;
+  padding: 0 10px;
+  background-color: transparent;
+}
+
+.search-coin-bar {
+  flex: 1;
+  height: 100%;
+  font-family: Poppins, sans-serif;
+  color: #b8b8b8;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.percentage-box {
+  border: 1px solid #292929;
+  height: 50px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  color: white;
 }

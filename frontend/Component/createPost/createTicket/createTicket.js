@@ -16,10 +16,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import Image from "next/image";
 
-import "./createPost.css";
+import "./createTicket.css";
 import NumberPicker from "./numberPicker/numberPicker";
+import PostDialog from "./postDialog/postDialog";
+import PreviewDialog from "./previewDialog/previewdialog";
 
-const CreatePost = ({ open, onClose }) => {
+const CreateTicket = ({ open, onClose }) => {
+  // uploadimage handler
   const fileInputRef = useRef(null);
 
   const handleButtonClick = () => {
@@ -32,6 +35,32 @@ const CreatePost = ({ open, onClose }) => {
       onUpload(file); // Pass the selected file to parent component
     }
   };
+
+  //post alert dialog
+
+  const [openPostAlert, setOpenPostAlert] = useState(false);
+
+  const handlePostAlert = () => {
+    console.log("opening");
+    setOpenPostAlert(true);
+  };
+
+  const handleClosePost = () => {
+    setOpenPostAlert(false);
+  };
+
+  // preview dialog state
+
+  const [openPreviewAlert, setOpenPreviewAlert] = useState(false);
+
+  const handlePreviewAlert = () => {
+    setOpenPreviewAlert(true);
+  };
+
+  const handlePreviewClose = () => {
+    setOpenPreviewAlert(false);
+  };
+
   return (
     <>
       <Dialog
@@ -44,23 +73,14 @@ const CreatePost = ({ open, onClose }) => {
             maxHeight: "100vh", // Responsive for smaller screens
             borderRadius: "12px",
             backgroundColor: "rgba(30, 30, 30, 0.6)", // Semi-transparent background
-            backdropFilter: "blur(10px)", // Blur effect for glassmorphism
+            backdropFilter: "blur(25px)", // Blur effect for glassmorphism
             borderRadius: "12px", // Soft rounded edges
             boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.3)", // Subtle shadow
           },
         }}
       >
         {/* title */}
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            backgroundColor: "transparent", // Transparent to allow backdrop-filter effect
-            padding: "8px 16px",
-            position: "relative",
-          }}
-        >
+        <Box className="dialog-title">
           {/* Back Button on the Left */}
           <IconButton
             aria-label="back"
@@ -71,18 +91,7 @@ const CreatePost = ({ open, onClose }) => {
           </IconButton>
 
           {/* Centered Title */}
-          <DialogTitle
-            sx={{
-              flexGrow: 1,
-              textAlign: "center",
-              fontWeight: "bold",
-              color: "white",
-              fontSize: "18px",
-              marginLeft: "-40px", // Adjust for perfect centering
-            }}
-          >
-            Create Ticket
-          </DialogTitle>
+          <DialogTitle className="dialog-title-text">Create Ticket</DialogTitle>
 
           {/* Close Button on the Right */}
           <IconButton
@@ -98,52 +107,34 @@ const CreatePost = ({ open, onClose }) => {
           dividers
           sx={{
             backgroundColor: "transparent",
-            "&::-webkit-scrollbar": { display: "none" },
+            scrollbarColor: "rgba(46, 46, 46, 0.84) transparent",
+            "&::-webkit-scrollbar-track": {
+              display: "none",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              background: "rgba(0, 0, 0, 0.7)",
+              borderRadius: "1px",
+            },
           }}
         >
           {/* search coins */}
-          <div
-            className="search-coin"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              width: "450px",
-              height: "50px",
-              border: "1px solid #3D3D3D",
-              borderRadius: "12px",
-              padding: "0 10px",
-              backgroundColor: "transparent",
-            }}
-          >
+          <div className="search-coin">
             <input
               type="text"
               placeholder="Search Coin"
-              style={{
-                flex: 1,
-                height: "100%",
-                fontFamily: "Poppins, 'sans-serif'",
-                color: "#B8B8B8",
-                backgroundColor: "transparent",
-                border: "none",
-                outline: "none",
-              }}
+              className="search-coin-bar"
             />
             <SearchIcon sx={{ color: "#B8B8B8", cursor: "pointer" }} />
           </div>
           {/* prediction button */}
           <div className="prediction-buttons-container">
-            <Button
-              variant="outlined"
-              sx={{ color: "#07CC00", border: "1px solid #07CC00" }}
-            >
-              <KeyboardDoubleArrowUpIcon />
+            <Button variant="outlined" className="bullish-button">
+              <KeyboardDoubleArrowUpIcon sx={{ transform: "rotate(45deg)" }} />
               Bullish
             </Button>
-            <Button
-              variant="outlined"
-              sx={{ color: "#CC0003", border: "1px solid #FF1F22" }}
-            >
-              <KeyboardDoubleArrowUpIcon />
+
+            <Button variant="outlined" className="bearish-button">
+              <KeyboardDoubleArrowUpIcon sx={{ transform: "rotate(135deg)" }} />
               Bearish
             </Button>
           </div>
@@ -183,20 +174,7 @@ const CreatePost = ({ open, onClose }) => {
                 className="percent-textarea"
               />
             </div>
-            <Box
-              sx={{
-                border: "1px solid #292929",
-                height: "50px",
-                width: "60px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: "12px",
-                color: "white",
-              }}
-            >
-              %
-            </Box>
+            <Box className="percentage-box">%</Box>
           </div>
           <div
             style={{ display: "flex", justifyContent: "center", marginTop: 20 }}
@@ -265,7 +243,7 @@ const CreatePost = ({ open, onClose }) => {
                 let words = e.target.value
                   .split(/\s+/)
                   .filter((word) => word !== ""); // Count words
-                if (words.length > 10) {
+                if (words.length > 500) {
                   e.target.value = e.target.value.substring(
                     0,
                     e.target.selectionStart - 1
@@ -294,12 +272,25 @@ const CreatePost = ({ open, onClose }) => {
             </div>
           </Box>
           <div className="buttons-container">
-            <Button variant="contained" className="final-button">
+            <Button
+              variant="contained"
+              className="final-button"
+              onClick={handlePreviewAlert}
+            >
               Preview
             </Button>
-            <Button variant="contained" className="final-button">
+            <PreviewDialog
+              open={openPreviewAlert}
+              onClose={handlePreviewClose}
+            />
+            <Button
+              variant="contained"
+              className="final-button"
+              onClick={handlePostAlert}
+            >
               Post
             </Button>
+            <PostDialog open={openPostAlert} onClose={handleClosePost} />
           </div>
         </DialogContent>
       </Dialog>
@@ -307,4 +298,4 @@ const CreatePost = ({ open, onClose }) => {
   );
 };
 
-export default CreatePost;
+export default CreateTicket;
